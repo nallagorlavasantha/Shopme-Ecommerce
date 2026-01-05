@@ -1,7 +1,10 @@
 # Shopme E‑Commerce Application
 
 ## About Project
-Shopme is a full‑stack e‑commerce application. Having experienced e‑commerce platforms only from a user’s perspective, I wanted to explore what happens behind the scenes. Through building this system, I’ve discovered the many architectural layers involved — from database design and role‑based security to modular development — and I am gradually implementing and refining each component.
+Shopme is a full‑stack e‑commerce application. 
+Having experienced e‑commerce platforms only from a user’s perspective, I wanted to explore what happens behind the scenes. 
+Through building this system, I’ve discovered the many architectural layers involved — 
+from database design and role‑based security to modular development — and I am gradually implementing and refining each component.
 
 ## System Architecture
 This is a multi‑module project that separates code for back‑end and front‑end applications:
@@ -26,15 +29,15 @@ This is a multi‑module project that separates code for back‑end and front‑
 ## Key Actors
 The types of users who will interact with the application:
 
-| Role        | Responsibilities                                                                 |
-|-------------|----------------------------------------------------------------------------------|
-| **Admin**   | Manage all aspects of the system, including users, roles, products, and orders   |
-| **Editor**  | Manage brands, categories, articles, products, and menus                         |
-| **Salesperson** | Manage sales reports, customers, orders, and shipping rates; update product prices |
-| **Assistant** | Manage customer questions and product reviews                                  |
-| **Shipper** | View products and orders; update order status                                    |
-| **Customer** | Browse products and categories; place orders and track delivery; manage profile and payment methods |
-| **Visitor** | Register and log in; view products and articles                                  |
+| Role                   | Responsibilities                                                                 
+|------------------|----------------------------------------------------------------------------------
+| **Admin**          | Manage all aspects of the system, including users, roles, products, and orders   
+| **Editor**           | Manage brands, categories, articles, products, and menus                         
+| **Salesperson** | Manage sales reports, customers, orders, and shipping rates; update product prices 
+| **Assistant**      | Manage customer questions and product reviews                                  
+| **Shipper**       | View products and orders; update order status                                    
+| **Customer**    | Browse products and categories; place orders and track delivery; manage profile and payment methods 
+| **Visitor**          | Register and log in; view products and articles                                  
 
 ## Technical Requirements
 - Both front‑end and back‑end applications will be accessible on any device  
@@ -45,7 +48,8 @@ The types of users who will interact with the application:
 - Back‑end and front‑end can be scaled independently  
 
 ## Project Status
-This is an ongoing project that I am actively developing and updating on a daily basis. The repository reflects my continuous learning journey, where I implement new features, refine the architecture, and explore advanced concepts in full‑stack e‑commerce design.
+This is an ongoing project that I am actively developing and updating on a daily basis. 
+The repository reflects my continuous learning journey, where I implement new features, refine the architecture, and explore advanced concepts in full‑stack e‑commerce design.
 
 ## Planned Features
 - Exporting reports in PDF and Excel formats  
