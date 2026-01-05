@@ -1,0 +1,59 @@
+# Shopme E‑Commerce Application
+
+## About Project
+Shopme is a full‑stack e‑commerce application. Having experienced e‑commerce platforms only from a user’s perspective, I wanted to explore what happens behind the scenes. Through building this system, I’ve discovered the many architectural layers involved — from database design and role‑based security to modular development — and I am gradually implementing and refining each component.
+
+## System Architecture
+This is a multi‑module project that separates code for back‑end and front‑end applications:
+
+1. **ShopmeCommon** – shared library for both back‑end and front‑end applications  
+2. **ShopmeWebParent** – parent module that manages common dependencies  
+   - **ShopmeBackend** – back‑end code for roles (Admin, Editor, Salesperson, Assistant, Shipper)  
+   - **ShopmeFrontend** – front‑end code and UI components
+
+## Technical Highlights
+**Back‑end**
+- Java  
+- JPA and Hibernate  
+- Test classes to perform database actions using `@DataJpaTest`  
+
+**Front‑end**
+- HTML, CSS (Bootstrap), JavaScript  
+
+**Database**
+- PostgreSQL  
+
+## Key Actors
+The types of users who will interact with the application:
+
+| Role        | Responsibilities                                                                 |
+|-------------|----------------------------------------------------------------------------------|
+| **Admin**   | Manage all aspects of the system, including users, roles, products, and orders   |
+| **Editor**  | Manage brands, categories, articles, products, and menus                         |
+| **Salesperson** | Manage sales reports, customers, orders, and shipping rates; update product prices |
+| **Assistant** | Manage customer questions and product reviews                                  |
+| **Shipper** | View products and orders; update order status                                    |
+| **Customer** | Browse products and categories; place orders and track delivery; manage profile and payment methods |
+| **Visitor** | Register and log in; view products and articles                                  |
+
+## Technical Requirements
+- Both front‑end and back‑end applications will be accessible on any device  
+- Applications will be available 24/7 after deployment  
+- Authentication is required for all users; authorization is assigned by Admin via the control panel  
+- Passwords are securely hashed and not stored directly in the database  
+- Requests are optimized for performance, with error handling that directs users to informative fallback pages  
+- Back‑end and front‑end can be scaled independently  
+
+## Project Status
+This is an ongoing project that I am actively developing and updating on a daily basis. The repository reflects my continuous learning journey, where I implement new features, refine the architecture, and explore advanced concepts in full‑stack e‑commerce design.
+
+## Planned Features
+- Exporting reports in PDF and Excel formats  
+- Secure password hashing and authentication  
+- Advanced role‑based access control (Admin, Customer, User)  
+- Order management and payment integration  
+- Product catalog with categories and inventory tracking  
+- Front‑end enhancements for improved user experience  
+
+## Getting Started
+Instructions for running the application will be added once configuration files (e.g., `application.properties`) are finalized.
