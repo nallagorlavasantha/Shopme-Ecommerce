@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/users.css}">
+<script type="text/javascript" th:src = "@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<title>shopme admin control panel</title>
+</head>
+<body>
+<div class = "container-fluid">
+	<div>
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" th:href="@{/}">
+				<img alt="shopme logo" th:src="@{/images/ShopmeAdminSmall.png}">
+			</a>
+			<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#topNavbar" type="button">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse " id="topNavbar">
+				<ul class="navbar-nav">
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/users}">Users</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/categories}">Categories</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/brands}">Brands</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/products}">Products</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/customers}">Customers</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/shipping}">Shipping</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/orders}">Orders</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/report}">Sales Report</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/articles}">Articles</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/menus}">Menus</a>
+					</li>
+					<li class="nav-item ms-3" style="width:fit-content">
+						<a class="nav-link" th:href="@{/settings}">Settings</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div>
+		<h2>Manage Users</h2>
+	</div>
+	<div>
+		<table class="table  table-responsive-xl table-hover table-bordered">
+			<thead>
+			<tr id="row">
+				<th>User Id</th>
+				<th>Photo</th>
+				<th>Email</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Roles</th>
+				<th>Enabled</th>
+			</tr>	
+			</thead>
+			<tbody>
+				<tr th:each = "user: ${allUsers}">
+					<td>[[${user.id}]]</td>
+					<td>[[${user.photo}]]</td>
+					<td>[[${user.email}]]</td>
+					<td>[[${user.firstName}]]</td>
+					<td>[[${user.lastName}]]</td>
+					<td>[[${user.roles}]]</td>
+					<td>[[${user.enabled}]]</td>
+					<td>Edit &nbsp; Delete </td>
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center">
+		<p>Shopme Admin Control Panel - Copyright &copy; Shopme  </p>
+	</div>
+</div>
+
+</body>
+</html>
