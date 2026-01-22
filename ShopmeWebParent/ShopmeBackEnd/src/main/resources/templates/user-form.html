@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <link rel="stylesheet" type="text/css" th:href="@{/css/users.css}">
 <script type="text/javascript" th:src = "@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<title>shopme admin control panel</title>
+<title>create new user</title>
 </head>
 <body>
 <div class = "container-fluid">
@@ -58,44 +58,74 @@
 		</nav>
 	</div>
 	<div>
-		<h2>Manage Users</h2>
-		<a th:href = "@{/users/new}">Create New User</a>
+		<h2>Manage Users | Create New User</h2>
 	</div>
-	<div th:if = "${message != null}" class = "alert alert-success" role="alert">
-		[[${message}]]
-	</div>
-	<div class="mt-2">
-		<table class="table  table-responsive-xl table-hover table-bordered">
-			<thead>
-			<tr id="row">
-				<th>User Id</th>
-				<th>Photo</th>
-				<th>Email</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Roles</th>
-				<th>Enabled</th>
-			</tr>	
-			</thead>
-			<tbody>
-				<tr th:each = "user: ${allUsers}">
-					<td>[[${user.id}]]</td>
-					<td>[[${user.photo}]]</td>
-					<td>[[${user.email}]]</td>
-					<td>[[${user.firstName}]]</td>
-					<td>[[${user.lastName}]]</td>
-					<td>[[${user.roles}]]</td>
-					<td>[[${user.enabled}]]</td>
-					<td>Edit &nbsp; Delete </td>
-					
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	<form th:action = "@{/users/save}" method = "post" style = "max-width : 700px; margin: 0 auto" th:object = "${user}">
+	<div class = "border border-secondary rounded p-3">
+		<div class="form-group row mb-3">
+			<label for="email"class = "col-sm-4 col-form-label">E-mail:</label>
+			<div class = "col-sm-8">
+				<input type = "email" id = "email" class = "form-control"  th:field = "*{email}" minlength="6" maxlength="24" required />
+			</div>
+		</div>
+		
+		<div class="form-group row mb-3">
+			<label for="first-name" class = "col-sm-4 col-form-label">First Name:</label>
+			<div class = "col-sm-8">
+				<input type = "text" id = "first-name" class = "form-control"   th:field = "*{firstName}" minlength="2" maxlength="45" required />
+			</div>
+		</div>
+		
+		<div class="form-group row mb-3">
+			<label for="last-name" class = "col-sm-4 col-form-label">Last Name:</label>
+			<div class = "col-sm-8">
+				<input type = "text" id = "last-name" class = "form-control"   th:field = "*{lastName}" minlength="2" maxlength="45" required />
+			</div>
+		</div>
+		
+		<div class="form-group row mb-3">
+			<label for="password" class = "col-sm-4 col-form-label">Password:</label>
+			<div class = "col-sm-8">
+				<input type = "password" id = "password" class = "form-control"   th:field = "*{password}" minlength="8" maxlength="35" required />
+			</div>
+		</div>
+		
+		<div class="form-group row mb-3">
+			<label class = "col-sm-4 col-form-label">Roles:</label>
+			<div class = "col-sm-8">
+			<th:block th:each = "role: ${listRoles}">
+				<input type = "checkbox" th:field = "*{roles}"
+				th:text = "${role.name}"
+				th:value = "${role.id}"
+				class = "m-2"
+				/>
+				- <small>[[${role.description}]]</small>
+				<br/>
+			</th:block>
+			</div>
+		</div>
+		
+		<div class="form-group row mb-3">
+			<label for="enabled" class = "col-sm-4 col-form-label">Enabled:</label>
+			<div class = "col-sm-8">
+				<input type = "checkbox" th:field = "*{enabled}" class = "m-2"/>
+			</div>
+		</div>
+		
+			<div class = "text-center">
+				<input type = "submit" value = "Save" class = "btn btn-primary m-3">
+				<input type = "button" value = "Cancel" class= "btn btn-secondary" onclick = "cancelUser()">
+			</div>
+		
+		</div>
+	</form>
 	<div class="text-center">
 		<p>Shopme Admin Control Panel - Copyright &copy; Shopme  </p>
 	</div>
 </div>
-
+	<script th:inline = "javascript">
+		let usersRedirectLink = /*[[@{/users}]]*/'';
+	</script>
+	<script type="text/javascript" th:src="@{/js/user-form.js}"></script>
 </body>
 </html>
