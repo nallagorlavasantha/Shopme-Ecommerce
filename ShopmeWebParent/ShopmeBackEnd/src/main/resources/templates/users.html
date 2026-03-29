@@ -61,7 +61,7 @@
 		<h2>Manage Users</h2>
 		<a th:href = "@{/users/new}">Create New User</a>
 	</div>
-	<div th:if = "${message != null}" class = "alert alert-success" role="alert">
+	<div th:if = "${message != null}" class = "alert alert-success alert-dismissible fade show" role="alert">
 		[[${message}]]
 	</div>
 	<div class="mt-2">
@@ -96,6 +96,16 @@
 		<p>Shopme Admin Control Panel - Copyright &copy; Shopme  </p>
 	</div>
 </div>
-
+<script>
+	setTimeout(()=>{
+		const alert = document.querySelector(".alert");
+		if(alert){
+			alert.classList.remove('show');
+			setTimeout(()=>{
+				alert.remove();
+			},500);
+		}
+	},2000)
+</script>
 </body>
 </html>
